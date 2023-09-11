@@ -2,8 +2,10 @@ package homework_nr_3;
 
 public class HomeWork3 {
     public static void main(String[] args) {
+        // switch-case который будет принимать в качестве переменной int от 0 до 12 и в зависимости от числа отобразить на экран месяц в году.
+
         int month = 12;
-// switch-case который будет принимать в качестве переменной int от 0 до 12 и в зависимости от числа отобразить на экран месяц в году.
+
         switch (month) {
             case 1:
                 System.out.println("January");
