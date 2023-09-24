@@ -3,23 +3,52 @@ package homework_nr_6;
 public class Date {
 
     public static void main(String[] args) {
-        Date date = new Date(22,9,2023);
+        Date date = new Date();
+        date.setYear(2023);
+        date.setMonth(9);
+        date.setDay(24);
         date.displayDate();
     }
-    private int day;
-    private int month;
+
     private int year;
+    private int month;
+    private int day;
 
     public int getDay() {
         return day;
     }
 
     public void setDay(int day) {
-        this.day = day;
-        if (day >= 1 && day < daysInMonth()) {
-            System.out.println(day);
-        } else
-            System.out.println("Invalid day");
+
+        if (this.month == 2) {
+
+            if (isLeapYear() && day > 0 && day <= 29) {
+                this.day = day;
+
+            } else if (!isLeapYear() && day > 0 && day <= 28) {
+                this.day = day;
+
+            } else {
+
+                System.out.println("Invalid date for this month");
+            }
+        } else if (this.month == 4 || this.month == 6 || this.month == 9 || this.month == 11) {
+
+            if (day > 0 && day <= 30) {
+                this.day = day;
+            } else {
+
+                System.out.println("Invalid date for this month");
+            }
+        } else {
+
+            if (day > 0 && day <= 31) {
+                this.day = day;
+            } else {
+
+                System.out.println("Invalid date for this month");
+            }
+        }
     }
 
 
@@ -28,57 +57,33 @@ public class Date {
     }
 
     public void setMonth(int month) {
-        this.month = month;
+
         if (month >= 1 && month < 12) {
-            System.out.println(month);
+            this.month = month;
+
         } else
             System.out.println("Invalid month");
     }
-
 
     public int getYear() {
         return year;
     }
 
     public void setYear(int year) {
-        this.year = year;
+
         if (year >= 1) {
-            System.out.println(month);
+            this.year = year;
+
         } else
             System.out.println("Invalid year");
     }
 
-    public Date(int day, int month, int year) {
-        this.day = day;
-        this.month = month;
-        this.year = year;
-    }
-
     boolean isLeapYear() {
-        return (year % 4 == 0);
-    }
-
-    public int daysInMonth() {
-
-        switch (month) {
-            case 2:
-                if (isLeapYear()) {
-                    return 29;
-                } else {
-                    return 28;
-                }
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                return 30;
-            default:
-                return 31;
-        }
-
+        return (this.year % 4 == 0);
     }
 
     public void displayDate() {
-        System.out.println(day + "/" + month + "/" + year);
+        System.out.println(this.day + "/" + this.month + "/" + this.year);
     }
 }
+
