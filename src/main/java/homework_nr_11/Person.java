@@ -37,7 +37,6 @@ public class Person {
 
 // Persons with age > 25 and isPayedByHour = true
         List<Person> personsWithAgeOver25YearsAndIsPayedByHour = persons.stream()
-                .map(person -> new Person(person.name, person.surname, person.age, person.isPayedByHour))
                 .filter(person -> person.age > 25 && person.isPayedByHour)
                 .toList();
         personsWithAgeOver25YearsAndIsPayedByHour.forEach(person -> System.out.println("Persons with age > 25 and isPayedByHour: " + person.name + " " + person.surname));
@@ -46,7 +45,6 @@ public class Person {
 
 // Persons with age > 30 and Surname starts with A
         List<Person> personsWithAgeOver30YearsAndSurnameStartsWithA = persons.stream()
-                .map(person -> new Person(person.name, person.surname, person.age, person.isPayedByHour))
                 .filter(person -> person.age > 30 && person.surname.startsWith("A"))
                 .toList();
         personsWithAgeOver30YearsAndSurnameStartsWithA.forEach(person -> System.out.println("Persons with age > 30 and Surname starts with A: " + person.name + " " + person.surname));
